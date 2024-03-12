@@ -54,7 +54,9 @@ const Homescreen = () => {
         placeholder='Type here'
         className='input input-bordered input-secondary w-full max-w-xs'
       />
-      <button className='btn btn-neutral'>Neutral</button>
+      <button onClick={handleFetchWeather} className='btn btn-neutral'>
+        Search
+      </button>
 
       <div>
         <div className='card w-96 bg-base-100 shadow-xl'>

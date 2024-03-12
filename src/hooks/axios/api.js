@@ -27,7 +27,7 @@ export const fetchLonLatData = async (city) => {
 
 export const fetchDataFromLatLon = async (inputData) => {
   const response = await axios.get(
-    `${URL}data/2.5/weather?lat=${inputData.lat}&lon=${inputData.lon}&exclude=current,minutely,hourly,alerts&appid=1635890035cbba097fd5c26c8ea672a1`
+    `${URL}data/2.5/onecall?lat=${inputData.lat}&lon=${inputData.lon}&exclude=current,minutely,hourly,alerts&appid=1635890035cbba097fd5c26c8ea672a1`
   );
   return response.data;
 };
