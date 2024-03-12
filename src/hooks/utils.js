@@ -10,7 +10,9 @@ export function kelvinToCelsius(kelvin) {
 
 export function timestampToDateTime(timestamp) {
   // Create a new Date object from the timestamp (in milliseconds)
-  const date = new Date(timestamp);
+  const timestampInMilliseconds =
+    timestamp < 1e12 ? timestamp * 1000 : timestamp;
+  const date = new Date(timestampInMilliseconds);
 
   // Get individual date and time components
   const day = date.getDate().toString().padStart(2, "0");
@@ -26,23 +28,30 @@ export function timestampToDateTime(timestamp) {
 }
 
 export function timestampToDate(timestamp) {
-  // Create a new Date object from the timestamp (in milliseconds)
-  const date = new Date(timestamp);
+  // Convert timestamp to milliseconds if it's in seconds
+  const timestampInMilliseconds =
+    timestamp < 1e12 ? timestamp * 1000 : timestamp;
 
-  // Get individual date and time components
+  // Create a new Date object from the timestamp (in milliseconds)
+  const date = new Date(timestampInMilliseconds);
+
+  // Get individual date components
   const day = date.getDate().toString().padStart(2, "0");
   const month = (date.getMonth() + 1).toString().padStart(2, "0"); // Months are zero-based
   const year = date.getFullYear();
 
-  // Format the result as "dd/mm/yyyy : hh:mm"
-  const formattedDateTime = `${day}/${month}/${year}`;
+  // Format the result as "dd/mm/yyyy"
+  const formattedDate = `${day}/${month}/${year}`;
 
-  return formattedDateTime;
+  return formattedDate;
 }
 
 export function timestampToTime(timestamp) {
   // Create a new Date object from the timestamp (in milliseconds)
-  const date = new Date(timestamp);
+
+  const timestampInMilliseconds =
+    timestamp < 1e12 ? timestamp * 1000 : timestamp;
+  const date = new Date(timestampInMilliseconds);
 
   const hours = date.getHours().toString().padStart(2, "0");
   const minutes = date.getMinutes().toString().padStart(2, "0");
@@ -52,3 +61,9 @@ export function timestampToTime(timestamp) {
 
   return formattedDateTime;
 }
+
+export const initialLocation = {
+  country: "",
+  state: "",
+  city: "",
+};

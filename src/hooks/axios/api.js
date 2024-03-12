@@ -20,7 +20,7 @@ export const fetchWeatherData = async (city) => {
 
 export const fetchLonLatData = async (city) => {
   const response = await axios.get(
-    `${URL}geo/1.0/direct?q=London&limit=1&appid=1635890035cbba097fd5c26c8ea672a1`
+    `${URL}geo/1.0/direct?q=${city}&limit=1&appid=1635890035cbba097fd5c26c8ea672a1`
   );
   return response.data;
 };
