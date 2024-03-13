@@ -1,15 +1,7 @@
 import { useState } from "react";
-import {
-  fetchDataFromLatLon,
-  fetchLonLatData,
-  fetchWeatherData,
-} from "../hooks/axios/api";
+import { fetchDataFromLatLon, fetchLonLatData } from "../hooks/axios/api";
 import { useMutationHandler } from "../hooks/useMutationHandler";
-import {
-  initialLocation,
-  kelvinToCelsius,
-  timestampToDate,
-} from "../hooks/utils";
+import { initialLocation } from "../hooks/utils";
 import WeatherCard from "../Components/WeatherCard";
 import Loading from "../Components/Loading";
 
@@ -37,6 +29,9 @@ const Homescreen = () => {
         setWeatherData(data);
         setCity("");
       },
+      onError: (data) => {
+        alert(data.message);
+      },
     });
   };
 
@@ -60,6 +55,7 @@ const Homescreen = () => {
         getDataFromLatLon(inputData);
       },
       onError: (data) => {
+        alert(data.message);
         console.log("error data", data);
       },
     });
