@@ -31,6 +31,7 @@ const Homescreen = () => {
       },
       onError: (data) => {
         alert(data.message);
+        console.log(weatherLatError);
       },
     });
   };
@@ -57,6 +58,7 @@ const Homescreen = () => {
       onError: (data) => {
         alert(data.message);
         console.log("error data", data);
+        console.log(weatherError);
       },
     });
   };
